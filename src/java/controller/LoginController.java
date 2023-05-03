@@ -1,4 +1,3 @@
-
 package controller;
 
 import java.io.IOException;
@@ -8,36 +7,32 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.User;
-
 
 @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
- //Atributos
-  private String user;
-  private String pass;
-  
-  
+    //Atributos
+    private String user;
+    private String pass;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+        
         this.user = request.getParameter("user");
         this.pass = request.getParameter("pass");
         
         User userNew = new User(this.user, this.pass);
         
-        if(userNew.isLogged()){
-            request.setAttribute("userNew", userNew);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-        }else{
-        
-        }
-        
-        
-        
+        if(userNew.isLogged()) {
+            HttpSession session = request.getSession();
+            session.setAttribute("userNewSession", userNew);
+            request.setAttribute("userNew",  userNew);
+            request.getRequestDispatcher("home.jsp")
+                    .forward(request, response);
+        } else {  
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -50,6 +45,7 @@ public class LoginController extends HttpServlet {
             out.println("</script>");
             out.println("</body>");
             out.println("</html>");
+            }
         }
     }
 

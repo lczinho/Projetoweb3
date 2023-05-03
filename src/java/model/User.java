@@ -1,4 +1,3 @@
-
 package model;
 
 public class User {
@@ -7,52 +6,47 @@ public class User {
     private String userPass;
     private String userCpf;
     
-    
     //Método construtor
-    public User(String user, String pass){
-       this.userName = user;
-       this.userPass = pass;
-    }
-    
-    //getters & Setters
-    public String getUserName(){
-    return this.userName;
-    }
-    
-    public void setUserName(String user){
+    public User(String user, String pass) {
         this.userName = user;
-    }
-    
-    
-     public String getUserPass(){
-    return this.userPass;
-    }
-    
-    public void setUserPass(String pass){
         this.userPass = pass;
     }
     
-    
-     public String getUserCpf(){
-    return this.userCpf;
+    //Getters & Setters
+    public String getUserName() {
+        return userName;
     }
-    
-    public void setUserCpf(String cpf){
-        this.userCpf = cpf;
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserPass() {
+        return userPass;
+    }
+
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
+    }
+
+    public String getUserCpf() {
+        return userCpf;
+    }
+
+    public void setUserCpf(String userCpf) {
+        this.userCpf = userCpf;
     }
     
     //toString - método para representação geral do objeto
-
     @Override
     public String toString() {
-        return "Nome:" + userName +"<br>CPF: " + userCpf;
+        return "Nome: " + userName + "<br>CPF: " + userCpf;
     }
-    
     
     //Métodos gerais
-    public boolean isLogged(){
-        return(this.userName.equals("lucas")
-               &&this.userPass.equals("senha1234"));
+    public boolean isLogged() {
+        return (this.userName.equals("donini")
+                   && this.userPass.equals("senha1234"));
     }
     
-}//Fim da classe
+} //Fim da classe
