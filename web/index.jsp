@@ -1,15 +1,9 @@
-<%-- 
-    Document   : index
-    Created on : 27 de abr. de 2023, 19:28:50
-    Author     : QI
---%>
 
-<% 
-    if(session.getAttribute("userNewSession")!=null){
+<%
+    if(session.getAttribute("userNewSession") != null) {
         response.sendRedirect("home.jsp");
     }
 %>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

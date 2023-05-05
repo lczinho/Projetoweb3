@@ -1,5 +1,5 @@
-<% 
-    if(session.getAttribute("userNewSession")==null){
+<%
+    if(session.getAttribute("userNewSession") == null) {
         response.sendRedirect(request.getContextPath());
     }
 %>
